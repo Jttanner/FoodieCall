@@ -1,0 +1,57 @@
+{% extends '../layouts/__base__.html' %}
+
+{% block content %} 
+    <form action="/login.html" method="POST">
+        <h3>Email</h3>
+        <input id="input_email" type="text" />
+        <h3>Password</h3>
+        <input id="input_password" type="text" />
+        <input id="button_login" type="button" value="login">
+    </form>
+    <form action="/register.html">
+        <input id="button_register" type="button" value="register">
+    </form>
+    
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        document.querySelector("#input_email").focus();
+        document.querySelector("#input_email").onkeyup = function(e){
+            if (e.keyCode === Constants.RETURN_KEYSTROKE){
+                document.querySelector("#button_login").click();
+            }
+        };
+        document.querySelector("#input_password").focus();
+        document.querySelector("#input_password").onkeyup = function(e){
+            if (e.keyCode === Constants.RETURN_KEYSTROKE){
+                document.querySelector("#button_login").click();
+            }
+        };
+
+        document.querySelector("#button_login").onclick = function(e) {
+            var email = document.querySelector("#input_email");
+            var password = document.querySelector("#input_password");
+            /*$.ajax({
+                url: 'login',
+                data: {
+                    'email': email,
+                    'password': password
+                },
+                dataType: 'json',
+                success: function(data){
+                    alert('success!');
+                },
+                failure: function(data){
+                    alert('failure...');
+                },
+            });*/
+        };
+
+        document.querySelector("#button_register").onclick = function(e){
+            window.location.pathname = '/register';
+        }
+
+    </script>
+{% endblock %}

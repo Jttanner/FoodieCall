@@ -19,6 +19,7 @@ from django.conf.urls import include, url
 
 urlpatterns = [
     #url(r'^chat/', include('chat.urls')),
-    path('chat/', include('chat.urls')),
+    path('', include('foodieApp.urls')),
+    #path('chat/', include('foodieApp.urls')),
     path('admin/', admin.site.urls),
 ]
