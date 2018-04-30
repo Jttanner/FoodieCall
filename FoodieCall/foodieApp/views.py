@@ -2,13 +2,18 @@ from django.shortcuts import render
 from django.utils.safestring import mark_safe
 import json
 
+from .forms.LoginForm import LoginForm
+
 # Create your views here.
 
 def home(request):
     return render(request, 'home/home.html')
 
 def login(request):
-    return render(request, 'home/login.html')
+    if request.method == 'POST':
+        a = 5
+    else:
+        return render(request, 'home/login.html')  #only accept posts
 
 def register(request):
     return render(request, 'home/register.html')
